@@ -34,10 +34,10 @@ class Page extends CI_Controller {
 			$page["tiles"] = $this->page_model->get_tiles();
 			$upcoming_hikes["hikes"] = $this->hike_model->get_upcoming_hikes(2);
 			$upcoming_socials["socials"] = $this->social_model->get_upcoming_socials(2);
-			$upcoming_news["news"] = $this->news_model->get_latest_news(3);
+			// $twitter["news"] = $this->news_model->get_latest_news(3);    # news has been replaced by Twitter
 			$page["tiles"][1]["extra"] = $this->load->view('hike/upcoming', $upcoming_hikes, true);
 			$page["tiles"][2]["extra"] = $this->load->view('social/upcoming', $upcoming_socials, true);
-			$page["tiles"][3]["extra"] = $this->load->view('news/latest', $upcoming_news, true);
+			$page["tiles"][3]["extra"] = $this->load->view('news/twitter', null, true);
       $page['banner'] = getSlideshow('assets/images/slideshow/', 6000);
 		}
 		else
