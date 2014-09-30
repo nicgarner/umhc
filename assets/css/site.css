@@ -545,7 +545,6 @@ h4 {
 
 .colourPicker {
     display:block;
-    width:900px;
     float:left;
     margin:20px 0 40px 0;
 }
@@ -604,7 +603,6 @@ h4 {
     height:30px;
     cursor:pointer;
     margin:0;
-/*    font-size:smaller; */
     text-align:center;
     background:#ddd;
     font-weight:bold;
@@ -619,20 +617,61 @@ h4 {
 .colourPicker .black {
     background:#010101
 }
-.colourPicker .navy {
-    background:#363996
+.colourPicker .fire {
+    background:#f34848
 }
-.colourPicker .pink {
-    background:#c04198
+.colourPicker .blue {
+    background:#1334ab
 }
 .colourPicker .purple {
-    background:#762a8c
+    background:#8a00d5
 }
 .colourPicker .red {
-    background:#cc2129
+    background:#990000
 }
 .colourPicker .green {
-    background:#5cbb5f
+    background:#a4bf69
+}
+.colourPicker .blue2 {
+    background:#0033cc
+}
+.colourPicker .green2 {
+    background:#006711
+}
+.colourPicker .grey {
+    background:#727f6e
+}
+.colourPicker .purple2 {
+    background:#8a00d5
+}
+.colourPicker .red2 {
+    background:#e10000
+}
+
+.centred {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -350px;
+	-moz-box-shadow: 0 0 217px 117px #333;
+	-webkit-box-shadow: 0 0 217px 117px #333;
+	box-shadow: 0 0 217px 117px #333;
+}
+.design1 {
+	margin-top: -395px;
+}
+.design2 {
+	margin-top: -364px;
+}
+.design3 {
+	margin-top: -255px;
+}
+
+.zoomin {
+	cursor: -webkit-zoom-in; cursor: -moz-zoom-in;
+}
+.zoomout {
+	cursor: -webkit-zoom-out; cursor: -moz-zoom-out;
 }
 
 .snowflake {
