@@ -8,7 +8,7 @@ function getImagesList($path) {
       // can add checks for other image file types here
       if (preg_match("/(\.gif|\.jpg)$/", $img_file))
 	  	{
-        $images[$imageCounter] = $img_file;
+        $images[$imageCounter] = $img_file . "?award";
         $imageCounter++;
       }
     }
@@ -47,63 +47,63 @@ function getSlideshow($path, $delay)
   {
     // put the images from the (php) array into a javascript array so the 
 		// page can find them later
-	$data = "<script type=\"text/javascript\"><!--\n";
-	$data .= "var pictures=new Array(); \n";
-	foreach ($list as $image)
-		$data .= "  pictures.push(\"$image\");\n";
-  $data .= " --></script>\n\n";
-	
-	// print the first image
-	$data .= '<div class="slideshowContainer" id="slideshowContainer">';
-	$data .= '<img id="frontimage" class="slideshow" src="/'.$path.$list[0].'"'.
-	     ' width="950" height="207" />';
-	$data .= '</div>';
+    $data = "<script type=\"text/javascript\"><!--\n";
+    $data .= "var pictures=new Array(); \n";
+    foreach ($list as $image)
+      $data .= "  pictures.push(\"$image\");\n";
+    $data .= " --></script>\n\n";
     
-	$data .= "<script type=\"text/javascript\"><!--
-		  
-	//change the opacity for different browsers
-	function changeOpac(opacity, id) {
-		var object = document.getElementById(id).style; 
-		object.opacity = (opacity / 100);
-		object.MozOpacity = (opacity / 100);
-		object.KhtmlOpacity = (opacity / 100);
-		object.filter = \"alpha(opacity=\" + opacity + \")\"
-	}
-	
-	function blendimage(divid, imageid, imagefile, millisec) {
-		var speed = Math.round(millisec / 100);
-		var timer = 0;
-		
-		//set the current image as background
-		document.getElementById(divid).style.backgroundImage = 
-		                   \"url(\" + document.getElementById(imageid).src + \")\";
-		
-		//make image transparent
-		changeOpac(0, imageid);
-		
-		//make new image
-		document.getElementById(imageid).src = imagefile;
-	
-		//fade in image
-		for(i = 0; i <= 100; i++) {
-			setTimeout(\"changeOpac(\"+i+\",'\"+imageid+\"')\",(timer*speed));
-			timer++;
-		}
-	}
-		  
-  function swapHomeImage(headlineon)
-  {
-	  blendimage(\"slideshowContainer\",\"frontimage\",\"".$path.
-		           "\"+pictures[headlineon],800);
-			  if (headlineon == pictures.length-1)
-                var next = 0;
-			  else
-			    var next = headlineon+1;
-
-			  t = setTimeout(\"swapHomeImage(\"+next+\")\",".$delay.");
-          }
-          t = setTimeout(\"swapHomeImage(1)\",".$delay.");
-          //--></script>";
+    // print the first image
+    $data .= '<div class="slideshowContainer" id="slideshowContainer">';
+    $data .= '<img id="frontimage" class="slideshow" src="/'.$path.$list[0].'"'.
+         ' width="950" height="207" />';
+    $data .= '</div>';
+      
+    $data .= "<script type=\"text/javascript\"><!--
+        
+    //change the opacity for different browsers
+    function changeOpac(opacity, id) {
+      var object = document.getElementById(id).style; 
+      object.opacity = (opacity / 100);
+      object.MozOpacity = (opacity / 100);
+      object.KhtmlOpacity = (opacity / 100);
+      object.filter = \"alpha(opacity=\" + opacity + \")\"
+    }
+    
+    function blendimage(divid, imageid, imagefile, millisec) {
+      var speed = Math.round(millisec / 100);
+      var timer = 0;
+      
+      //set the current image as background
+      document.getElementById(divid).style.backgroundImage = 
+                         \"url(\" + document.getElementById(imageid).src + \")\";
+      
+      //make image transparent
+      changeOpac(0, imageid);
+      
+      //make new image
+      document.getElementById(imageid).src = imagefile;
+    
+      //fade in image
+      for(i = 0; i <= 100; i++) {
+        setTimeout(\"changeOpac(\"+i+\",'\"+imageid+\"')\",(timer*speed));
+        timer++;
+      }
+    }
+        
+    function swapHomeImage(headlineon)
+    {
+      blendimage(\"slideshowContainer\",\"frontimage\",\"".$path.
+                 "\"+pictures[headlineon],800);
+      if (headlineon == pictures.length-1)
+        var next = 0;
+      else
+        var next = headlineon+1;
+      t = setTimeout(\"swapHomeImage(\"+next+\")\",".$delay.");
+    }
+    
+    t = setTimeout(\"swapHomeImage(1)\",".$delay.");
+    //--></script>";
     return $data;
   } 
   return false;
@@ -162,7 +162,7 @@ function slideshow()
         changeOpac(0, imageid);
         
         //make new image
-        document.getElementById(imageid).src = imagefile;
+        document.getElementById(imageid).src = imagefile + "";
       
         //fade in image
         for(i = 0; i <= 100; i++) {
@@ -173,7 +173,7 @@ function slideshow()
       
       function swapHomeImage(headlineon)
       {
-        blendimage("slideshowContainer","frontimage","'.base_url().'images/slideshow/"+pictures[headlineon],800);
+        blendimage("slideshowContainer","frontimage","'.base_url().'images/slideshow/"+pictures[headlineon]+"",800);
         if (headlineon == pictures.length-1)
           var next = 0;
         else
