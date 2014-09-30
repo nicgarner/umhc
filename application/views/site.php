@@ -14,7 +14,17 @@
                                       university with hiking trips and socials
                                       every week." /> 
     <link rel="shortcut icon" href="<?= base_url() ?>favicon.ico" type="image/x-icon"/>
-<? if (date("n") == 12 || (date("n") == 1 && date("j") <= 6)) $snow = 1; else $snow = 0; ?>
+
+	<? 
+	
+	require_once 'Mobile_Detect.php';
+	$detect = new Mobile_Detect;
+	
+	if ((date("n") == 12 || (date("n") == 1 && date("j") <= 6)) && (!$detect->isMobile() && !$detect->isTablet()))
+		$snow = 1;
+	else
+		$snow = 0;
+	?>
     <script type="text/javascript"> 
 	  	var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-27323959-1']);
@@ -190,9 +200,8 @@
           <div class="link">Log out</div>
         </a>
       </div>
-      <? endif ?> 
-
-      <ul>
+      <? endif ?>
+	  <ul>
       <? foreach ($navigation_pages as $link): ?>
         <li<? if ($link['title'] == $title || $link['title'] == $parent) echo ' class="on"'; ?>>
           <a href="/<?= $link['slug'] ?>"><?= $link['title'] ?></a></li>
@@ -213,10 +222,9 @@
   </div>
   	<div id="UMHCFooter">
       <div class="UMHContentbox left"> 
-        <p><strong>University of Manchester Hiking Club</strong></p>   
-        <p>Site developed by <a href="mailto:webmaster@umhc.org.uk">Nic 
-           Garner</a>, based on work by <a href="mailto:website@cjbanks.org.uk">		
-           Chris Banks</a> and other committee members.</p> 
+        <p><strong>University of Manchester Hiking Club</strong>. Site maintained by <a href="mailto:webmaster@umhc.org.uk">Marco Smolla</a>.</p> 
+        <p>Developed by <strong>Nic Garner</strong>, based on work by <a href="mailto:website@cjbanks.org.uk">		
+           Chris Banks</a> and other committee members.</p>
         <p>&copy; University of Manchester Hiking Club 
            2007-<?= date("Y") ?></p>
       </div> 
