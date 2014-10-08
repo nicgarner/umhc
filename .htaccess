@@ -1,0 +1,16 @@
+RewriteEngine On
+
+RewriteBase /
+
+RewriteRule ^scripts/(.*)$ assets/scripts/$1 [NC,L]
+RewriteRule ^css/(.*)$ assets/css/$1 [NC,L]
+RewriteRule ^images/(.*)$ assets/images/$1 [NC,L]
+RewriteRule ^files/(.*)$ assets/files/$1 [NC,L]
+
+# Do not enable rewriting for files or directories that exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# For requests that are not actual files or directories,
+# Rewrite to index.php/URL
+RewriteRule ^(.*)$ index.php/$1 [PT,L]
