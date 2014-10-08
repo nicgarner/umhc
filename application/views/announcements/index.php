@@ -6,11 +6,11 @@
 </a>
 <div class="clear"></div>
 
-<? if(count($future) > 0): ?>
+<?php if(count($future) > 0): ?>
 <h3>Future announcements</h3>
 <p>Announcements scheduled to appear in the future.</p>
 <ul class="admin_announcements">
-<? foreach($future as $announcement): ?>
+<?php foreach($future as $announcement): ?>
   <li>  
     <a href="/announcements/edit/<?= $announcement['id'] ?>" title="Edit announcement">
       <img src=<?= base_url() ?>images/design/icons/edit.png width="16" height="16" /></a>
@@ -18,15 +18,15 @@
       <img src=<?= base_url() ?>images/design/icons/delete.png width="16" height="16" /></a>
     <strong><?= $announcement['content'] ?></strong> (starts <?= $announcement['start'] ?>)
   </li>
-<? endforeach ?>
+<?php endforeach ?>
 </ul>
-<? endif ?>
+<?php endif ?>
 
-<? if(count($current) > 0): ?>
+<?php if(count($current) > 0): ?>
 <h3>Current announcements</h3>
 <p>Announcements currently displayed on the site.</p>
 <ul class="admin_announcements">
-<? foreach($current as $announcement): ?>
+<?php foreach($current as $announcement): ?>
   <li>
     <a href="/announcements/edit/<?= $announcement['id'] ?>" title="Edit announcement">
       <img src=<?= base_url() ?>images/design/icons/edit.png width="16" height="16" /></a>
@@ -34,17 +34,17 @@
       <img src=<?= base_url() ?>images/design/icons/cancel.png width="16" height="16" /></a>
     <strong><?= $announcement['content'] ?></strong> (expires <?= $announcement['end'] ?>)
   </li>
-<? endforeach ?>
+<?php endforeach ?>
 </ul>
-<? endif ?>
+<?php endif ?>
 
 
-<? if(count($old) > 0): ?>
+<?php if(count($old) > 0): ?>
 <h3>Old announcements</h3>
 <p>Announcements from the past.</p>
 <ul class="admin_announcements">
-<? foreach($old as $announcement): ?>
+<?php foreach($old as $announcement): ?>
   <li><strong><?= $announcement['content'] ?></strong> (expired <?= $announcement['end'] ?>)</li>
-<? endforeach ?>
+<?php endforeach ?>
 </ul>
-<? endif ?>
+<?php endif ?>

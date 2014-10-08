@@ -1,10 +1,10 @@
 <h2><?= $title ?></h2>
 
-<? if(validation_errors()): ?>
+<?php if(validation_errors()): ?>
   <div class="form_errors">
     <h3>The hike couldn't be saved because of the following error(s):</h3>
 	  <?= validation_errors() ?>
-    <?  $hike['location'] = $_POST['location'];
+    <?php  $hike['location'] = $_POST['location'];
         $hike['area'] = $_POST['area'];
 		    $hike['date'] = $_POST['date'];
 		    $hike['end_date'] = $_POST['end_date'];
@@ -15,40 +15,40 @@
 		    $hike['add_another'] = (array_key_exists('options',$_POST) ? 'on' : NULL);
     ?>
   </div>
-<? endif ?>
+<?php endif ?>
 
 <?= form_open('hikes/' + $form) ?>
 
 	<p><label for="location">Location:</label> 
-	<input type="input" name="location" size="30"<? if (isset($hike)) echo ' value="'.$hike['location']; ?>" /></p>
+	<input type="input" name="location" size="30"<?php if (isset($hike)) echo ' value="'.$hike['location']; ?>" /></p>
 
 	<p><label for="area">Area:</label> 
-	<input type="input" name="area" size="30"<? if (isset($hike)) echo ' value="'.$hike['area']; ?>" />
+	<input type="input" name="area" size="30"<?php if (isset($hike)) echo ' value="'.$hike['area']; ?>" />
   <span class="note">E.g. "Lake District", "Cairngorms"...</span></p>
   
   <p><label for="date">Date:</label>
-	<input type="input" name="date" size="10"<? if (isset($hike)) echo ' value="'.$hike['date']; ?>" />
+	<input type="input" name="date" size="10"<?php if (isset($hike)) echo ' value="'.$hike['date']; ?>" />
   <span class="note"><tt>dd mm yyyy</tt></span></p>
   
   <p><label for="end_date">End date:</label>
-	<input type="input" name="end_date" size="10"<? if (isset($hike)) echo ' value="'.$hike['end_date']; ?>" />
+	<input type="input" name="end_date" size="10"<?php if (isset($hike)) echo ' value="'.$hike['end_date']; ?>" />
   <span class="note"><tt>dd mm yyyy</tt>. Leave blank for day trip.</span></p>
   
   <p><label for="type">Type:</label> 
-  <?
-  if (isset($hike))
+  <?php
+   if (isset($hike))
     echo form_dropdown('type', $types, $hike['type']);
   else
     echo form_dropdown('type', $types);
   ?>
   
   <p><label for="notes">Note:</label>
-	<input type="input" name="notes" size="30"<? if (isset($hike)) echo ' value="'.$hike['notes']; ?>" />
+	<input type="input" name="notes" size="30"<?php if (isset($hike)) echo ' value="'.$hike['notes']; ?>" />
   <span class="note">Any additional note on the trip, e.g. "Night hike", "Skills hike"...</span></p>
   
   
   <p><label for="email">Email:</label>
-	<input type="input" name="email" size="30"<? if (isset($hike)) echo ' value="'.$hike['email']; ?>" />
+	<input type="input" name="email" size="30"<?php if (isset($hike)) echo ' value="'.$hike['email']; ?>" />
   <span class="note">Email URL from <a href="http://lists.umhc.org.uk/pipermail/umhc_club/"
                      target="umhc_club_archive" title="opens in new window">list archive</a>, e.g. 
                      <tt>2012-July/000821.html</tt></span></p>
@@ -64,8 +64,8 @@
                                                 [hide options]</a>
   <p class="note">The image shown on the background of the hike's cell on the hikes page.</p>
   <div class="images" id="images">
-  <?
-  echo '<div class="event_cell">';
+  <?php
+   echo '<div class="event_cell">';
   if (isset($hike))
     if ($hike['image'] == 'none' || $hike['image'] == null)
       echo form_radio('image', 'none', true);
@@ -97,7 +97,7 @@
 	<p>
     <input type="submit" name="submit" value="<?= $submit ?>" />
     <a href="/hikes">Cancel</a>
-     <? if ($form == 'new')
+     <?php if ($form == 'new')
         {
           echo '<br />';
           if (isset($hike))

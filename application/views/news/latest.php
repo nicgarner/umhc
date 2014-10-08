@@ -1,6 +1,6 @@
 <div class="newstile">
-<?
-foreach($news as $news_item)
+<?php
+ foreach($news as $news_item)
 {
 	echo '<h3><a href="/news">' . $news_item['title'] . '</a></h3>';
 	echo '<em>' . $news_item['date'] . '</em>';

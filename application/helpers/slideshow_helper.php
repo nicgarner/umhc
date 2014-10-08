@@ -1,4 +1,5 @@
-<?
+<?php
+
 function getImagesList($path) {
   $imageCounter = 0;
   if ($img_dir = @opendir($path))

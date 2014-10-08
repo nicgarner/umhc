@@ -1,5 +1,5 @@
-<?
-	if (is_numeric($page["content"]))
+<?php
+ 	if (is_numeric($page["content"]))
 	{
 		
 		echo "<h2>Social programme ".$page["content"]."/".($page["content"]+1)."</h2>";

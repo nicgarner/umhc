@@ -1,9 +1,9 @@
-<h2><? if ($cancelled) echo "<span class=\"event_cancelled\">"?><?= $location ?> (<?= $area ?>) hike details<? if ($cancelled) echo "</span> &nbsp; <span class=\"cancelled_notice\">CANCELLED</span>"?></h2>
-<p><strong><? if ($cancelled) echo "<span class=\"event_cancelled\">"?><? if ($notes) echo $notes . ", "?><?= $date ?><? if ($end_date) echo " to " . $end_date ?><? if ($cancelled) echo "</span>"?></strong></p>
-<? if ($cancelled) echo "<p class=\"cancelled_notice\">We regret that due to unforseen circumstances this trip will no longer be going ahead.</p>"?>
-<p>The details about this trip are below. You can find more general information about the club and how <? echo strtolower($type)."s" ?> operate in the <a href="/crucial-guide">crucial guide</a>. Make sure you're signed up to the <a href="/mailing-list">mailing list</a> to get this information sent straight to your inbox.</p>
+<h2><?php if ($cancelled) echo "<span class=\"event_cancelled\">"?><?= $location ?> (<?= $area ?>) hike details<?php if ($cancelled) echo "</span> &nbsp; <span class=\"cancelled_notice\">CANCELLED</span>"?></h2>
+<p><strong><?php if ($cancelled) echo "<span class=\"event_cancelled\">"?><?php if ($notes) echo $notes . ", "?><?= $date ?><?php if ($end_date) echo " to " . $end_date ?><?php if ($cancelled) echo "</span>"?></strong></p>
+<?php if ($cancelled) echo "<p class=\"cancelled_notice\">We regret that due to unforseen circumstances this trip will no longer be going ahead.</p>"?>
+<p>The details about this trip are below. You can find more general information about the club and how <?php echo strtolower($type)."s" ?> operate in the <a href="/crucial-guide">crucial guide</a>. Make sure you're signed up to the <a href="/mailing-list">mailing list</a> to get this information sent straight to your inbox.</p>
 
-<? 
+<?php
 if($email)
 { 
 	echo "<div class=\"email\">";

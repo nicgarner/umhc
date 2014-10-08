@@ -1,8 +1,8 @@
 <?= $page ?>
 <div class="news">
 
-<?
-if(count($news) > 0)
+<?php
+ if(count($news) > 0)
 {
   echo '<div class="pagination">' . $links . '</div>';
   foreach($news as $news_item)

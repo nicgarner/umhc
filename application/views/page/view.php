@@ -1,5 +1,5 @@
-<?
-  if (isset($_SESSION['username']))
+<?php
+   if (isset($_SESSION['username']))
   {
     echo '<div class="right"><a href="/pages/edit/'.$slug.'" title="Edit page" class="admin_button">';
     echo '<img src="'.base_url().'images/design/icons/edit.png">';
@@ -9,7 +9,7 @@
   }
 ?>
 <?= $content ?>
-<? 
+<?php
   if(isset($tiles))
   {
     echo "<div class=\"tiles\">";

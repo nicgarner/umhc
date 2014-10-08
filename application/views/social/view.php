@@ -1,20 +1,20 @@
 <h2>
-  <? if ($cancelled) echo '<span class="event_cancelled">'?>
-  <?= $title ?><? if ($cancelled) echo '</span> &nbsp; <span class="cancelled_notice">CANCELLED</span>'?>
+  <?php if ($cancelled) echo '<span class="event_cancelled">'?>
+  <?= $title ?><?php if ($cancelled) echo '</span> &nbsp; <span class="cancelled_notice">CANCELLED</span>'?>
 </h2>
 <p><strong>
-  <? if ($cancelled) echo '<span class="event_cancelled">'?>
-  <? if ($location) echo $location . ', '; else echo "Location to be confirmed. " ?>
+  <?php if ($cancelled) echo '<span class="event_cancelled">'?>
+  <?php if ($location) echo $location . ', '; else echo "Location to be confirmed. " ?>
   <?= $date . ' ' . $time ?>
-  <? if ($cancelled) echo "</span>"?>
+  <?php if ($cancelled) echo "</span>"?>
 </strong></p>
-<? if ($cancelled) echo '<p class="cancelled_notice">We regret that due to unforseen circumstances this social will no longer be going ahead.</p>'?>
-<? if ($facebook) echo '<p><a href="'.$facebook.'" 
+<?php if ($cancelled) echo '<p class="cancelled_notice">We regret that due to unforseen circumstances this social will no longer be going ahead.</p>'?>
+<?php if ($facebook) echo '<p><a href="'.$facebook.'"
                               target="facebook">Join the event on Facebook</a></p>' ?>
 <p>Make sure you're signed up to the <a href="/mailing-list">mailing list</a> to get this information sent straight to your inbox.</p>
 
-<?
-if($email)
+<?php
+ if($email)
 {
 	echo "<div class=\"email\">";
 	

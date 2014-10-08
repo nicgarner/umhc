@@ -15,7 +15,7 @@
                                       every week." /> 
     <link rel="shortcut icon" href="<?= base_url() ?>favicon.ico" type="image/x-icon"/>
 
-	<? 
+	<?php
 	
 	require_once 'Mobile_Detect.php';
 	$detect = new Mobile_Detect;
@@ -37,8 +37,8 @@
 			})();
 	  </script>
 </head>
-<body<? if ($snow) echo " onload=\"init()\""?>>
-<? if ($snow) echo "<div class=\"snow\" id=\"snow\"></div>
+<body<?php if ($snow) echo " onload=\"init()\""?>>
+<?php if ($snow) echo "<div class=\"snow\" id=\"snow\"></div>
 	<script type=\"text/javascript\" src=\"scripts/ThreeCanvas.js\"></script>
 	<script type=\"text/javascript\" src=\"scripts/Snow.js\"></script>
 	
@@ -189,7 +189,7 @@
       <a href="/">
         <img src="<?= base_url() ?>images/design/sitename.gif" width="316" height="67" class="name" />
       </a>     
-      <? if (isset($_SESSION['username'])): ?>
+      <?php if (isset($_SESSION['username'])): ?>
       <div class="admintools">
         <a href="/admin" title="Admin index" class="admin_button">
           <img src="<?= base_url() ?>images/design/icons/home.png" />
@@ -200,19 +200,19 @@
           <div class="link">Log out</div>
         </a>
       </div>
-      <? endif ?>
+      <?php endif ?>
 	  <ul>
-      <? foreach ($navigation_pages as $link): ?>
-        <li<? if ($link['title'] == $title || $link['title'] == $parent) echo ' class="on"'; ?>>
+      <?php foreach ($navigation_pages as $link): ?>
+        <li<?php if ($link['title'] == $title || $link['title'] == $parent) echo ' class="on"'; ?>>
           <a href="/<?= $link['slug'] ?>"><?= $link['title'] ?></a></li>
-      <? endforeach ?>
+      <?php endforeach ?>
       </ul>
       <div class="clear"></div>
     </div>
 
     <div id="UMHCMainBody">
-    	<?
-        if (isset($banner)) echo $banner;
+    	<?php
+         if (isset($banner)) echo $banner;
         if (isset($announcements)) echo $announcements;
       ?>
     <div id="UMHCPage">

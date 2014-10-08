@@ -13,8 +13,8 @@
 </a>
 <div class="clear"></div>
 
-<?
-if(count($users) > 0)
+<?php
+ if(count($users) > 0)
 {
   echo '<h3>Active users</h3><p>';
   $active = 1;

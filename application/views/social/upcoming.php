@@ -1,5 +1,5 @@
 <div class="socials">
-<?
+<?php
 
 foreach($socials as $social)
 {

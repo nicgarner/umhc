@@ -1,6 +1,6 @@
 <div class="hikes">
-<?
-	if (is_numeric($page["content"]))
+<?php
+ 	if (is_numeric($page["content"]))
 	{
 		
 		echo "<h2>Hike programme ".$page["content"]."/".($page["content"]+1)."</h2>";

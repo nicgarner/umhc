@@ -1,11 +1,11 @@
 <h2>Log in</h2>
 
-<? if(validation_errors()): ?>
+<?php if(validation_errors()): ?>
   <div class="form_errors">
     <h3>You can't log in because:</h3>
     <?= validation_errors(); ?>
   </div>
-<? endif ?>
+<?php endif ?>
 
 <?= form_open('admin') ?>
 <p>

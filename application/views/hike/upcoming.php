@@ -1,5 +1,5 @@
 <div class="hikes">
-<?
+<?php
 
 foreach($hikes as $hike)
 {
