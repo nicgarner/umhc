@@ -2,6 +2,9 @@ RewriteEngine On
 
 RewriteBase /
 
+RewriteCond %{HTTP_HOST} ^(www.)?umhc.org.uk$
+RewriteRule ^(/)?$ test/index.html [L]
+
 RewriteRule ^scripts/(.*)$ assets/scripts/$1 [NC,L]
 RewriteRule ^css/(.*)$ assets/css/$1 [NC,L]
 RewriteRule ^images/(.*)$ assets/images/$1 [NC,L]
