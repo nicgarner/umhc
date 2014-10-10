@@ -1,5 +1,5 @@
 <?php
- 	if (is_numeric($page['content']))
+ 	if (isset($page['content']) && is_numeric($page['content']))
 	{
 		echo '<h2>Committee '.$page["content"].'/'.($page["content"]+1).'</h2>';
 		echo '<p><strong>You can also see the <a href="'.base_url().'committee">committee details for the current academic year</a>.</strong></p>';
